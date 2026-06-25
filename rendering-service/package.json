@@ -1,0 +1,20 @@
+{
+  "name": "rendering-service",
+  "version": "1.0.0",
+  "description": "خدمة تصدير الصور للقوالب باستخدام Puppeteer",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "puppeteer": "^22.13.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
