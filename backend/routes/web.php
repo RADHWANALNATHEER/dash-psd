@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DesignController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PsdImportController;
 use App\Http\Controllers\TemplateController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('templates/import', [PsdImportController::class, 'create'])->name('templates.import');
+    Route::post('templates/import', [PsdImportController::class, 'store'])->name('templates.import.store');
     Route::resource('templates', TemplateController::class)->except(['show']);
 
     Route::get('designs/create', [DesignController::class, 'create'])->name('designs.create');

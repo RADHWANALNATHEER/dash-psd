@@ -2,9 +2,14 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">القوالب</h2>
-            <a href="{{ route('templates.create') }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700">
-                + قالب جديد
-            </a>
+            <div class="flex gap-2">
+                <a href="{{ route('templates.import') }}" class="inline-flex items-center px-4 py-2 bg-white border border-indigo-600 text-indigo-600 text-sm font-medium rounded-md hover:bg-indigo-50">
+                    استيراد من PSD
+                </a>
+                <a href="{{ route('templates.create') }}" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700">
+                    + قالب جديد
+                </a>
+            </div>
         </div>
     </x-slot>
 
@@ -32,7 +37,7 @@
                                     </div>
                                     <p class="text-sm text-gray-500 mb-3">{{ $template->width }}×{{ $template->height }} · {{ $template->layers->count() }} طبقة</p>
                                     <div class="flex gap-2">
-                                        <a href="{{ route('designs.create', ['template_id' => $template->id]) }}" class="text-sm text-indigo-600 hover:underline">إنتاج تصميم</a>
+                                        <a href="{{ route('designs.create', ['template_id' => $template->id]) }}" class="text-sm text-indigo-600 hover:underline">تجربة القالب</a>
                                         <a href="{{ route('templates.edit', $template) }}" class="text-sm text-gray-600 hover:underline">تعديل</a>
                                         <form action="{{ route('templates.destroy', $template) }}" method="POST" onsubmit="return confirm('هل أنت متأكد من الحذف؟')">
                                             @csrf
